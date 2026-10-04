@@ -1,6 +1,6 @@
 # 📚 Book Catalog
 
-A simple **Java console-based Book Catalog application** that allows users to add books, search for books by title, and view all available books. The catalog is stored in a text file so that the books remain available even after the program is closed.
+A simple **Java console-based Book Catalog application** that allows users to add books, search for books by title, and view all available books. The catalog is stored in a text file so that books remain available even after the program is closed.
 
 ## ✨ Features
 
@@ -24,10 +24,12 @@ A simple **Java console-based Book Catalog application** that allows users to ad
 ```text
 Book-Catalog/
 │
-├── Main.java
-├── Books.java
-├── books.txt
-└── README.md
+├── src/
+│   ├── Main.java
+│   └── Books.java
+│
+├── README.md
+└── .gitignore
 ```
 
 ### `Books.java`
@@ -42,23 +44,11 @@ Contains the `Books` class, which stores:
 Contains the main program and implements:
 
 * Adding books
-* Searching books
-* Listing books
-* Saving books to a file
-* Loading books from a file
+* Searching books by title
+* Listing all books
+* Saving books to a text file
+* Loading books from a text file
 * Menu and user interaction
-
-### `books.txt`
-
-Stores the book catalog so that data is not lost when the program closes.
-
-Example:
-
-```text
-Harry Potter|J.K. Rowling
-The Hobbit|J.R.R. Tolkien
-Atomic Habits|James Clear
-```
 
 ## 🚀 How to Run
 
@@ -68,25 +58,22 @@ Atomic Habits|James Clear
 git clone <your-repository-url>
 ```
 
-### 2. Open the project
+### 2. Navigate to the project
 
-Open the project in your preferred Java IDE, such as:
-
-* IntelliJ IDEA
-* Eclipse
-* VS Code
-* NetBeans
+Open the project in your preferred Java IDE, such as IntelliJ IDEA, Eclipse, or VS Code.
 
 ### 3. Compile the program
 
+From the project directory:
+
 ```bash
-javac Main.java Books.java
+javac src/Main.java src/Books.java
 ```
 
 ### 4. Run the program
 
 ```bash
-java Main
+java -cp src Main
 ```
 
 ## 🎮 How to Use
@@ -129,7 +116,7 @@ Book found: Harry Potter by J.K. Rowling
 
 ### List All Books
 
-Select `3` to display all books:
+Select `3` to display all books.
 
 ```text
 List of all books:
@@ -141,35 +128,37 @@ The Hobbit by J.R.R. Tolkien
 
 Select `4` to exit the program.
 
-The catalog is stored in `books.txt` and can be loaded again when the program is started.
+The catalog is stored in `books.txt` and loaded again when the program starts.
 
 ## 💾 File Handling
 
 The project uses Java file handling to provide data persistence.
 
-### Saving
+### Saving Books
 
 The `saveBooks()` method writes the books from the `ArrayList` to `books.txt`.
 
 ```text
 ArrayList<Books>
        ↓
-  saveBooks()
+ saveBooks()
        ↓
-  books.txt
+ books.txt
 ```
 
-### Loading
+### Loading Books
 
 The `loadBooks()` method reads the saved books from `books.txt` when the program starts.
 
 ```text
-  books.txt
-       ↓
-  loadBooks()
-       ↓
+ books.txt
+     ↓
+ loadBooks()
+     ↓
 ArrayList<Books>
 ```
+
+The `books.txt` file is ignored by Git and is therefore not uploaded to the repository.
 
 ## 📌 Future Improvements
 
